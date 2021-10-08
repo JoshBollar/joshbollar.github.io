@@ -20,7 +20,14 @@
 
     FB.getLoginStatus(function(response) {
       statusChangeCallback(response);
-    });  
+    });
+    
+    // post page load js
+    function checkLoginState() {
+      FB.getLoginStatus(function(response) {
+        statusChangeCallback(response);
+      });
+    }
   };
 
   (function(d, s, id){
@@ -34,3 +41,9 @@
   alert('hello world!');
 </script>
 </head>
+<body>
+<fb:login-button 
+  scope="public_profile,email"
+  onlogin="checkLoginState();">
+</fb:login-button>
+</body>
