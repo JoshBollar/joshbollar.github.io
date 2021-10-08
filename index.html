@@ -13,7 +13,14 @@
     });
       
     FB.AppEvents.logPageView();   
-      
+    
+    function statusChangeCallback(response) {
+      console.log('response', response);
+    }
+
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });  
   };
 
   (function(d, s, id){
@@ -23,14 +30,6 @@
      js.src = "https://connect.facebook.net/en_US/sdk.js";
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
-
-  function statusChangeCallback(response) {
-    console.log('response', response);
-  }
-
-  FB.getLoginStatus(function(response) {
-    statusChangeCallback(response);
-  });
 
   alert('hello world!');
 </script>
