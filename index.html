@@ -21,13 +21,6 @@
     FB.getLoginStatus(function(response) {
       statusChangeCallback(response);
     });
-    
-    // post page load js
-    function checkLoginState() {
-      FB.getLoginStatus(function(response) {
-        statusChangeCallback(response);
-      });
-    }
   };
 
   (function(d, s, id){
@@ -39,6 +32,13 @@
    }(document, 'script', 'facebook-jssdk'));
 
   alert('hello world!');
+  // post page load js
+  // this REQUIRES FB js object to exist, so don't click too fast lol
+  function checkLoginState() {
+    FB.getLoginStatus(function(response) {
+      statusChangeCallback(response);
+    });
+  }
 </script>
 </head>
 <body>
