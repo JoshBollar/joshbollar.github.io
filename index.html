@@ -36,9 +36,15 @@
   // this REQUIRES FB js object to exist, so don't click too fast lol
   function checkLoginState() {
     FB.getLoginStatus(function(response) {
-      statusChangeCallback(response);
+      statusChangeCallbackAfterLogin(response);
     });
   }
+  
+  // this needs to be duplicated because the above version
+  // is inside an asyncAwait
+  function statusChangeCallbackAfterLogin(response) {
+      console.log('response', response);
+    }
 </script>
 </head>
 <body>
